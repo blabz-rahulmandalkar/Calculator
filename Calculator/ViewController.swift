@@ -134,5 +134,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         self.outputLbl.text = String(describing: numberOnScreen)
         self.prevSymbol = ""
     }
+    
+    override func viewDidLayoutSubviews() {
+        self.view.layoutIfNeeded()
+        self.collectionView.layoutIfNeeded()
+        self.collectionView.reloadData()
+    }
 }
 
