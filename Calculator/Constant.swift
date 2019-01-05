@@ -9,5 +9,5 @@ struct Constant {
     static let SQRT = "\u{221A}"
     static let EQL = "\u{003D}"
     static let DOT = "\u{2024}"
-
+    static let PER = "%"
 }

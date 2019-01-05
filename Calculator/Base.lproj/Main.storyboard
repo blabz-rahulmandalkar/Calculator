@@ -46,15 +46,57 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ip5-RJ-gA9">
+                                        <rect key="frame" x="8" y="8" width="359" height="170"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ2-5Q-ZWM">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="170"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmO-zd-GNy">
+                                                        <rect key="frame" x="0.0" y="170" width="359" height="0.0"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" id="DgG-0Q-7oT"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="vmO-zd-GNy" firstAttribute="leading" secondItem="mQ2-5Q-ZWM" secondAttribute="leading" id="1ph-IQ-gdF"/>
+                                                    <constraint firstItem="vmO-zd-GNy" firstAttribute="centerX" secondItem="mQ2-5Q-ZWM" secondAttribute="centerX" id="2Eu-zV-iPQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vmO-zd-GNy" secondAttribute="bottom" id="i46-yD-sgC"/>
+                                                    <constraint firstAttribute="height" priority="250" constant="170" id="lkW-SP-soo"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vmO-zd-GNy" secondAttribute="trailing" id="mbl-H8-bvS"/>
+                                                    <constraint firstItem="vmO-zd-GNy" firstAttribute="height" relation="lessThanOrEqual" secondItem="mQ2-5Q-ZWM" secondAttribute="height" id="wka-AT-3fZ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="mQ2-5Q-ZWM" firstAttribute="centerX" secondItem="Ip5-RJ-gA9" secondAttribute="centerX" id="18f-TW-Cb6"/>
+                                            <constraint firstItem="mQ2-5Q-ZWM" firstAttribute="leading" secondItem="Ip5-RJ-gA9" secondAttribute="leading" id="8qa-K7-xfe"/>
+                                            <constraint firstItem="mQ2-5Q-ZWM" firstAttribute="top" secondItem="Ip5-RJ-gA9" secondAttribute="top" id="VIt-mZ-7y9"/>
+                                            <constraint firstAttribute="trailing" secondItem="mQ2-5Q-ZWM" secondAttribute="trailing" id="mEM-UR-NdN"/>
+                                            <constraint firstAttribute="bottom" secondItem="mQ2-5Q-ZWM" secondAttribute="bottom" id="pff-JC-Q1a"/>
+                                        </constraints>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80906963832487311" green="0.74448259842520581" blue="0.076370782272587825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="cuQ-Je-qJa" firstAttribute="top" secondItem="Ip5-RJ-gA9" secondAttribute="bottom" constant="8" id="2dR-Ff-82d"/>
                                     <constraint firstAttribute="trailing" secondItem="cuQ-Je-qJa" secondAttribute="trailing" constant="8" id="8fu-ql-kCV"/>
                                     <constraint firstItem="wRS-NC-mXa" firstAttribute="leading" secondItem="W71-ZU-sZs" secondAttribute="leading" id="Aim-R5-VBU"/>
                                     <constraint firstItem="wRS-NC-mXa" firstAttribute="height" secondItem="W71-ZU-sZs" secondAttribute="height" multiplier="70:100" id="G4h-RK-O7v"/>
                                     <constraint firstItem="cuQ-Je-qJa" firstAttribute="leading" secondItem="W71-ZU-sZs" secondAttribute="leading" constant="8" id="SdE-RE-q7v"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ip5-RJ-gA9" secondAttribute="bottom" constant="469" placeholder="YES" id="TSC-ge-Ugl"/>
                                     <constraint firstAttribute="bottom" secondItem="wRS-NC-mXa" secondAttribute="bottom" id="Tgw-PS-9Iq"/>
                                     <constraint firstItem="cuQ-Je-qJa" firstAttribute="top" secondItem="W71-ZU-sZs" secondAttribute="top" priority="250" constant="8" id="Vxy-5Q-pqM"/>
+                                    <constraint firstItem="Ip5-RJ-gA9" firstAttribute="top" secondItem="W71-ZU-sZs" secondAttribute="top" constant="8" id="aMO-rS-8M8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ip5-RJ-gA9" secondAttribute="trailing" constant="8" id="aPn-NP-uWk"/>
+                                    <constraint firstItem="Ip5-RJ-gA9" firstAttribute="leading" secondItem="W71-ZU-sZs" secondAttribute="leading" constant="8" id="d17-sa-Ipn"/>
                                     <constraint firstItem="wRS-NC-mXa" firstAttribute="top" secondItem="cuQ-Je-qJa" secondAttribute="bottom" constant="8" id="q4e-Ku-fcC"/>
                                     <constraint firstAttribute="trailing" secondItem="wRS-NC-mXa" secondAttribute="trailing" id="xWs-wS-5UW"/>
                                 </constraints>
@@ -71,7 +113,10 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wRS-NC-mXa" id="BOt-ZU-LQm"/>
+                        <outlet property="historyLbl" destination="vmO-zd-GNy" id="v59-Mf-1hw"/>
+                        <outlet property="historyLblHeightConstraint" destination="DgG-0Q-7oT" id="Y47-Kt-82Y"/>
                         <outlet property="outputLbl" destination="cuQ-Je-qJa" id="0so-bu-ksk"/>
+                        <outlet property="scrollView" destination="Ip5-RJ-gA9" id="GLd-R6-EiZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

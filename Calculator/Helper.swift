@@ -31,7 +31,10 @@ class Helper {
         if(isSymbol(str: newStr.first?.description ?? "")){
             newStr.removeFirst()
         }
-        if(isSymbol(str: newStr.last?.description ?? "") || newStr.last?.description == "."){
+        if(isSymbol(str: newStr.last?.description ?? "")){
+            newStr.removeLast()
+        }
+        if (newStr.last?.description == "."){
             newStr.removeLast()
         }
         return newStr

@@ -9,22 +9,29 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     @IBOutlet weak var outputLbl: UILabel!
     
+    @IBOutlet weak var historyLbl: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var historyLblHeightConstraint: NSLayoutConstraint!
+    
     //MARK:Constants & Variables
     let reuseIdentifier = "ButtonCell"
-    let symbols = [Constant.SQRT,"AC","",Constant.DIV,"7","8","9",Constant.MUL,"4","5","6",Constant.SUB,"1","2","3",Constant.ADD
+    let symbols = [Constant.SQRT,"AC","%",Constant.DIV,"7","8","9",Constant.MUL,"4","5","6",Constant.SUB,"1","2","3",Constant.ADD
         ,"C","0","",Constant.EQL,"",""]
-    var historyList:[Double] = []
-    var prevNumber:Double = 0
-    var currentValue:String = ""
+    //var historyList:[Double] = []
+    //var prevNumber:Double = 0
+    //var currentValue:String = ""
     var prevSymbol:String = ""
     var numberOnScreen:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.outputLbl.text = String(describing: numberOnScreen)
-        self.collectionView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.scrollView.bottomAnchor.constraint(equalTo: self.historyLbl.bottomAnchor).isActive = true
     }
     
     //MARK:Collection Data Source Methods
@@ -70,7 +77,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             value = Helper.shared.trimSymbols(str: value)
             let exp = "sqrt(\(value))"
             self.calculateExpression(expression:exp,callback: { (result) in
+                if((Double(exp)) == nil){
+                    self.addInHistory(str: exp)
+                }
                 self.outputLbl.text = result
+                self.addInHistory(str: "=\(result)")
             })
         case 1:
             self.clearScreen()
@@ -78,7 +89,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             guard var value = self.outputLbl.text else { return}
             value = Helper.shared.trimSymbols(str: value)
             self.calculateExpression(expression:value,callback: { (result) in
+                if((Double(value)) == nil){
+                    self.addInHistory(str: value)
+                }
                 self.outputLbl.text = result
+                self.addInHistory(str: "=\(result)")
             })
         case 16:
             self.removeLast()
@@ -133,6 +148,16 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     func clearScreen(){
         self.outputLbl.text = String(describing: numberOnScreen)
         self.prevSymbol = ""
+        self.historyLbl.text = nil
+    }
+    
+    func addInHistory(str:String){
+        self.historyLbl.text = (self.historyLbl.text != nil) ? "\(self.historyLbl.text!)\n\(str)":"\(str)"
+        self.historyLbl.sizeToFit()
+        let newSize = self.historyLbl.sizeThatFits(CGSize(width: self.historyLbl.frame.size.width, height: self.historyLbl.frame.size.height))
+        self.historyLblHeightConstraint.constant = newSize.height
+        let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+        self.scrollView.setContentOffset(bottomOffset, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
